@@ -7,12 +7,17 @@ const FormObject = {
 };
 function SignUp() {
   const userStore = useSelector((state) => state.auth);
+  console.log(userStore, "-----------------");
   const dispatcher = useDispatch();
   const [formObject, setFormObject] = useState(FormObject);
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(formObject);
+
     dispatcher(signUp(formObject));
+    setFormObject({
+      name: "",
+      password: "",
+    });
   };
 
   const formHandler = (e) => {
@@ -43,6 +48,7 @@ function SignUp() {
         <br />
         <button type="submit">Submit</button>
       </form>
+      <p>{userStore.error}</p>
     </div>
   );
 }
