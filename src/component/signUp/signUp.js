@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signUp } from "../../redux/action";
+import { signup } from "../../redux/actions/signup.action";
 import { useSelector, useDispatch } from "react-redux";
 const FormObject = {
   name: "",
@@ -7,13 +7,13 @@ const FormObject = {
 };
 function SignUp() {
   const userStore = useSelector((state) => state.auth);
-  console.log(userStore, "-----------------");
+
   const dispatcher = useDispatch();
   const [formObject, setFormObject] = useState(FormObject);
   const submitHandler = (e) => {
     e.preventDefault();
 
-    dispatcher(signUp(formObject));
+    dispatcher(signup(formObject));
     setFormObject({
       name: "",
       password: "",

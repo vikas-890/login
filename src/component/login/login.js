@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { login } from "../../redux/action";
+import { login } from "../../redux/actions/login.action";
 import { useSelector, useDispatch } from "react-redux";
 const FormObject = {
   name: "",
